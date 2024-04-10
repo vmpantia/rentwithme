@@ -16,9 +16,12 @@ namespace RWM.Infrastructure.Databases.Repositories
             _table = context.Set<TEntity>();
         }
 
-        public async Task<IQueryable<TEntity>> GetByExpressionAsync(Expression<Func<TEntity, bool>> expression) =>
-            await Task.Run(() => _table.Where(expression)
-                                       .AsNoTracking());
+        public async Task<bool> IsExistAsync(Expression<Func<TEntity, bool>> expression) =>
+            await _table.AnyAsync(expression);
+
+        public IQueryable<TEntity> GetByExpression(Expression<Func<TEntity, bool>> expression) =>
+            _table.Where(expression)
+                  .AsNoTracking();
 
         public async Task<TEntity?> GetByIdAsync<TId>(TId id) =>
             await _table.FindAsync(id);
