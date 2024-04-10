@@ -90,7 +90,8 @@ namespace RWM.Domain.Stubs
                 .RuleFor(p => p.Description, f => f.Vehicle.Type())
                 .RuleFor(p => p.Rate, f => f.Random.Decimal())
                 .RuleFor(p => p.Status, f => f.PickRandom<CommonStatus>())
-                .RuleFor(p => p.CreatedAt, DateTime.Now);
+                .RuleFor(p => p.CreatedAt, DateTime.Now)
+                .RuleFor(p => p.CreatedBy, f => f.Internet.Email());
 
         public static Faker<Yard> FakerYard() =>
             new Faker<Yard>()

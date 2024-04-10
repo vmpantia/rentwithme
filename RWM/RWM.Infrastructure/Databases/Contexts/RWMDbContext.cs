@@ -69,6 +69,9 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .HasForeignKey(p => p.BookingId)
                 .IsRequired();
 
+                e.Property(b => b.Amount)
+                .HasPrecision(18, 2);
+
                 e.HasData(_stubBookings);
             });
 
@@ -99,6 +102,9 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .HasForeignKey(p => p.BookingId)
                 .IsRequired();
 
+                e.Property(b => b.Amount)
+                .HasPrecision(18, 2);
+
                 e.HasData(_stubPayments);
             });
 
@@ -124,6 +130,9 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .HasForeignKey(v => v.VehicleId)
                 .IsRequired();
 
+                e.Property(b => b.Rate)
+                .HasPrecision(18, 2);
+
                 e.HasData(_stubVehicles);
             });
 
@@ -133,6 +142,9 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .WithOne(v => v.VehicleType)
                 .HasForeignKey(v => v.VehicleTypeId)
                 .IsRequired();
+
+                e.Property(b => b.Rate)
+                .HasPrecision(18, 2);
 
                 e.HasData(_stubVehicleTypes);
             });
