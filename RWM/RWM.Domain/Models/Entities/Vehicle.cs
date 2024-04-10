@@ -1,13 +1,16 @@
 ﻿using RWM.Domain.Contractors.Entities;
 using RWM.Domain.Models.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace RWM.Domain.Models.Entities
 {
     public class Vehicle : IEntity<Guid>
     {
+        [Key]
         public Guid Id { get; set; }
-        public Guid CustomerId { get; set; }
+        public Guid OperatorId { get; set; }
         public Guid VehicleTypeId { get; set; }
+        public Guid YardId { get; set; }
         public string MVFileNo { get; set; }
         public string PlateNo { get; set; }
         public string EngineNo { get; set; }
@@ -26,7 +29,9 @@ namespace RWM.Domain.Models.Entities
         public DateTime? DeletedAt { get; set; }
         public string? DeletedBy { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        public virtual Operator Operator { get; set; }
         public virtual VehicleType VehicleType { get; set; }
+        public virtual Yard Yard { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

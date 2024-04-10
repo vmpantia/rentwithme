@@ -4,14 +4,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RWM.Domain.Models.Entities
 {
-    public class VehicleType : IEntity<Guid>
+    public class Payment : IEntity<Guid>
     {
         [Key]
         public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Rate { get; set; }
-        public CommonStatus Status { get; set; }
+        public Guid BookingId { get; set; }
+        public string Amount { get; set; }
+        public string? Remarks { get; set; }
+        public PaymentType Type { get; set; }
+        public PaymentMethod Method { get; set; }
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
@@ -19,6 +20,6 @@ namespace RWM.Domain.Models.Entities
         public DateTime? DeletedAt { get; set; }
         public string? DeletedBy { get; set; }
 
-        public virtual ICollection<Vehicle> Vehicles { get; set; }
+        public virtual Booking Booking { get; set; }
     }
 }

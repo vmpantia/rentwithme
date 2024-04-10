@@ -1,9 +1,12 @@
-﻿using RWM.Domain.Models.Enums;
+﻿using RWM.Domain.Contractors.Entities;
+using RWM.Domain.Models.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace RWM.Domain.Models.Entities
 {
-    public class Operator
+    public class Operator : IEntity<Guid>
     {
+        [Key]
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string? MiddleName { get; set; }

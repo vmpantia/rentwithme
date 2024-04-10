@@ -1,9 +1,12 @@
-﻿using RWM.Domain.Models.Enums;
+﻿using RWM.Domain.Contractors.Entities;
+using RWM.Domain.Models.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace RWM.Domain.Models.Entities
 {
-    public class Customer
+    public class Customer : IEntity<Guid>
     {
+        [Key]
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string? MiddleName { get; set; }
@@ -25,5 +28,7 @@ namespace RWM.Domain.Models.Entities
         public string? UpdatedBy { get; set; }
         public DateTime? DeletedAt { get; set; }
         public string? DeletedBy { get; set; }
+
+        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }
