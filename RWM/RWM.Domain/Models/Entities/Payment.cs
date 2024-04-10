@@ -9,7 +9,7 @@ namespace RWM.Domain.Models.Entities
         [Key]
         public Guid Id { get; set; }
         public Guid BookingId { get; set; }
-        public string Amount { get; set; }
+        public decimal Amount { get; set; }
         public string? Remarks { get; set; }
         public PaymentType Type { get; set; }
         public PaymentMethod Method { get; set; }

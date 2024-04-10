@@ -15,7 +15,6 @@ namespace RWM.Domain.Models.Entities
         public string Origin { get; set; }
         public string Destination { get; set; }
         public decimal Amount { get; set; }
-        public decimal Total { get; set; }
         public BookingStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }

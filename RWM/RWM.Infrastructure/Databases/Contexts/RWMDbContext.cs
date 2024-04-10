@@ -1,11 +1,46 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RWM.Domain.Models.Entities;
+using RWM.Domain.Stubs;
 
 namespace RWM.Infrastructure.Databases.Contexts
 {
     public class RWMDbContext : DbContext
     {
-        public RWMDbContext(DbContextOptions options) : base(options) { }
+        private List<Booking> _stubBookings = new List<Booking>();
+        private List<Customer> _stubCustomers = new List<Customer>();
+        private List<Operator> _stubOperators = new List<Operator>();
+        private List<Payment> _stubPayments = new List<Payment>();
+        private List<Vehicle> _stubVehicles = new List<Vehicle>();
+        private List<VehicleType> _stubVehicleTypes = new List<VehicleType>();
+        private List<Yard> _stubYards = new List<Yard>();
+        public RWMDbContext(DbContextOptions options) : base(options)
+        {
+            var customers = FakeData.FakerCustomer()
+                                    .Generate(100);
+            var operators = FakeData.FakerOperator()
+                                    .Generate(100);
+            var vehicleTypes = FakeData.FakerVehicleType()
+                                       .Generate(10);
+            var yards = FakeData.FakerYard()
+                                .Generate(10);
+            var vehicles = FakeData.FakerVehicle(operators.Select(data => data.Id),
+                                                 vehicleTypes.Select(data => data.Id),
+                                                 yards.Select(data => data.Id))
+                                   .Generate(500);
+            var bookings = FakeData.FakerBooking(customers.Select(data => data.Id),
+                                                 vehicles.Select(data => data.Id))
+                                   .Generate(1000);
+            var payments = FakeData.FakerPayment(bookings.Select(data => data.Id))
+                                   .Generate(1000);
+
+            _stubBookings = bookings;
+            _stubCustomers = customers;
+            _stubOperators = operators;
+            _stubPayments = payments;
+            _stubVehicles = vehicles;
+            _stubVehicleTypes = vehicleTypes;
+            _stubYards = yards;
+        }
 
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -33,6 +68,8 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .WithOne(p => p.Booking)
                 .HasForeignKey(p => p.BookingId)
                 .IsRequired();
+
+                e.HasData(_stubBookings);
             });
 
             modelBuilder.Entity<Customer>(e =>
@@ -41,6 +78,8 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .WithOne(b => b.Customer)
                 .HasForeignKey( c => c.CustomerId)
                 .IsRequired();
+
+                e.HasData(_stubCustomers);
             });
 
             modelBuilder.Entity<Operator>(e =>
@@ -49,6 +88,8 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .WithOne(v => v.Operator)
                 .HasForeignKey(v => v.OperatorId)
                 .IsRequired();
+
+                e.HasData(_stubOperators);
             });
 
             modelBuilder.Entity<Payment>(e =>
@@ -57,6 +98,8 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .WithMany(b => b.Payments)
                 .HasForeignKey(p => p.BookingId)
                 .IsRequired();
+
+                e.HasData(_stubPayments);
             });
 
             modelBuilder.Entity<Vehicle>(e =>
@@ -80,6 +123,8 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .WithOne(b => b.Vehicle)
                 .HasForeignKey(v => v.VehicleId)
                 .IsRequired();
+
+                e.HasData(_stubVehicles);
             });
 
             modelBuilder.Entity<VehicleType>(e =>
@@ -88,6 +133,8 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .WithOne(v => v.VehicleType)
                 .HasForeignKey(v => v.VehicleTypeId)
                 .IsRequired();
+
+                e.HasData(_stubVehicleTypes);
             });
 
             modelBuilder.Entity<Yard>(e =>
@@ -96,6 +143,8 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .WithOne(y => y.Yard)
                 .HasForeignKey(y => y.YardId)
                 .IsRequired();
+
+                e.HasData(_stubYards);
             });
         }
     }

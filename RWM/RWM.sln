@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWM.Infrastructure", "RWM.Infrastructure\RWM.Infrastructure.csproj", "{C82412B4-485A-4BDB-AD92-206D24B78EA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RWM.Infrastructure", "RWM.Infrastructure\RWM.Infrastructure.csproj", "{C82412B4-485A-4BDB-AD92-206D24B78EA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWM.Domain", "RWM.Domain\RWM.Domain.csproj", "{5DADF484-F9E8-4089-B968-184EB410CB5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RWM.Domain", "RWM.Domain\RWM.Domain.csproj", "{5DADF484-F9E8-4089-B968-184EB410CB5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWM.WebApi", "RWM.WebApi\RWM.WebApi.csproj", "{AB517616-329C-4430-9308-B71DA2654CC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5DADF484-F9E8-4089-B968-184EB410CB5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DADF484-F9E8-4089-B968-184EB410CB5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DADF484-F9E8-4089-B968-184EB410CB5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB517616-329C-4430-9308-B71DA2654CC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB517616-329C-4430-9308-B71DA2654CC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB517616-329C-4430-9308-B71DA2654CC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB517616-329C-4430-9308-B71DA2654CC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
