@@ -15,9 +15,9 @@ namespace RWM.Infrastructure.Databases.Repositories
                       .Include(tbl => tbl.Bookings)
                       .ToListAsync();
 
-        public async Task<Customer> GetCustomerFullInfoAsync(Expression<Func<Customer, bool>> expression) =>
+        public async Task<Customer?> GetCustomerFullInfoAsync(Expression<Func<Customer, bool>> expression) =>
             await base.GetByExpression(expression)
                       .Include(tbl => tbl.Bookings)
-                      .FirstAsync();
+                      .FirstOrDefaultAsync();
     }
 }
