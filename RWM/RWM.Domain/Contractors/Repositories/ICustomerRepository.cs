@@ -1,5 +1,4 @@
-﻿using RWM.Domain.Contractors.Repositories;
-using RWM.Domain.Models.Entities;
+﻿using RWM.Domain.Models.Entities;
 using System.Linq.Expressions;
 
 namespace RWM.Domain.Contractors.Repositories

@@ -3,5 +3,5 @@ using RWM.Core.Models.Views;
 
 namespace RWM.Core.Models.Queries
 {
-    public record GetCustomerByIdQuery(Guid Id) : IRequest<CustomerView> { }
+    public record GetCustomerByIdQuery(Guid CustomerId) : IRequest<CustomerView> { }
 }

@@ -13,6 +13,7 @@ namespace RWM.Infrastructure.Extensions
         {
             services.AddDbContext<RWMDbContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("MigrationDb")));
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
         }
     }
 }

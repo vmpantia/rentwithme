@@ -10,6 +10,7 @@
         Travelling,
         Returned,
         Completed,
-        Cancelled
+        Cancelled,
+        Deleted
     }
 }
