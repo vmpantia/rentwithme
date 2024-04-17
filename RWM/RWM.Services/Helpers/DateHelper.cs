@@ -8,7 +8,7 @@
             if (dateFrom.Date > dateTo.Date) throw new Exception("Invalid date range value.");
 
             // Get number of days between the two dates
-            return (dateFrom.Date - dateTo.Date).Days;
+            return (dateTo.Date - dateFrom.Date).Days;
         }
     }
 }

@@ -3,15 +3,16 @@
     public class BookingView
     {
         public Guid Id { get; set; }
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
+        public DateTime StartAt { get; set; }
+        public DateTime EndAt { get; set; }
+        public int Days { get; set; }
         public string Origin { get; set; }
         public string Destination { get; set; }
         public decimal Rate { get; set; }
-        public decimal Amount { get; set; }
-        public decimal ReservationFee { get; set; }
-        public int RecervationPercentage { get; set; }
+        public decimal ReservationPercentage { get; set; }
         public decimal Total { get; set; }
+        public decimal ReservationFee { get; set; }
+        public decimal PaidAmount { get; set; }
         public decimal Balance { get; set; }
         public string Status { get; set; }
 
