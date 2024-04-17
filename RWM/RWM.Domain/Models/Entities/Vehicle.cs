@@ -19,7 +19,7 @@ namespace RWM.Domain.Models.Entities
         public string Make { get; set; }
         public string Series { get; set; }
         public string YearModel { get; set; }
-        public DateTime ORExpiredAt { get; set; }
+        public DateTime ExpiredAt { get; set; }
         public decimal Rate { get; set; }
         public VehicleStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RWM.Domain", "RWM.Domain\RW
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RWM.WebApi", "RWM.WebApi\RWM.WebApi.csproj", "{AB517616-329C-4430-9308-B71DA2654CC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWM.Core", "RWM.Core\RWM.Core.csproj", "{5FA51F14-A74C-4C3C-B304-9A6FEFEBC751}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RWM.Core", "RWM.Core\RWM.Core.csproj", "{5FA51F14-A74C-4C3C-B304-9A6FEFEBC751}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWM.Services", "RWM.Services\RWM.Services.csproj", "{837BC2F4-9B87-4217-9758-43F7A3BDC662}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{5FA51F14-A74C-4C3C-B304-9A6FEFEBC751}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FA51F14-A74C-4C3C-B304-9A6FEFEBC751}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FA51F14-A74C-4C3C-B304-9A6FEFEBC751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{837BC2F4-9B87-4217-9758-43F7A3BDC662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{837BC2F4-9B87-4217-9758-43F7A3BDC662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{837BC2F4-9B87-4217-9758-43F7A3BDC662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{837BC2F4-9B87-4217-9758-43F7A3BDC662}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

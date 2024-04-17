@@ -6,6 +6,7 @@
         Debit,
         Credit,
         BankTransfer,
-        EWallet
+        GCash,
+        Maya
     }
 }

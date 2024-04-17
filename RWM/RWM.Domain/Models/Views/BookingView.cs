@@ -1,4 +1,4 @@
-﻿namespace RWM.Core.Models.Views
+﻿namespace RWM.Domain.Models.Views
 {
     public class BookingView
     {
@@ -7,7 +7,12 @@
         public DateTime To { get; set; }
         public string Origin { get; set; }
         public string Destination { get; set; }
+        public decimal Rate { get; set; }
         public decimal Amount { get; set; }
+        public decimal ReservationFee { get; set; }
+        public int RecervationPercentage { get; set; }
+        public decimal Total { get; set; }
+        public decimal Balance { get; set; }
         public string Status { get; set; }
 
         // Customer Information
@@ -25,6 +30,9 @@
         public string VehicleSeries { get; set; }
         public string VehicleYearModel { get; set; }
         public string VehicleType { get; set; }
+
+        // Payment Information
+        public IEnumerable<PaymentView> PaymentHistory { get; set; }
 
         public DateTime LastModifiedAt { get; set; }
     }

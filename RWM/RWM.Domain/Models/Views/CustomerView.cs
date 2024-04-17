@@ -1,4 +1,4 @@
-﻿namespace RWM.Core.Models.Views
+﻿namespace RWM.Domain.Models.Views
 {
     public class CustomerView
     {

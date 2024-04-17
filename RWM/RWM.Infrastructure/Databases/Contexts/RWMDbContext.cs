@@ -69,7 +69,7 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .HasForeignKey(p => p.BookingId)
                 .IsRequired();
 
-                e.Property(b => b.Amount)
+                e.Property(b => b.Rate)
                 .HasPrecision(18, 2);
 
                 e.HasData(_stubBookings);

@@ -10,11 +10,11 @@ namespace RWM.Domain.Models.Entities
         public Guid Id { get; set; }
         public Guid CustomerId { get; set; }
         public Guid VehicleId { get; set; }
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
-        public string Origin { get; set; }
+        public DateTime StartAt { get; set; }
+        public DateTime EndAt { get; set; }
         public string Destination { get; set; }
-        public decimal Amount { get; set; }
+        public decimal Rate { get; set; }
+        public string? Feedback { get; set; }
         public BookingStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }

@@ -1,30 +1,32 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using RWM.Core.Models.Queries;
-using RWM.Core.Models.Views;
+using RWM.Domain.Models.Views;
 
 namespace RWM.WebApi.Controllers
 {
     [ApiController]
-    [Route("api")]
+    [Route("api/customers")]
     public class CustomerController : BaseController
     {
         public CustomerController(IMediator mediator) : base(mediator) { }
 
-        [HttpGet("customers")]
+        [HttpGet]
         public async Task<IActionResult> GetAllCustomersAsync() =>
             await HandleRequestAsync<GetAllCustomersQuery, IEnumerable<CustomerView>>(new GetAllCustomersQuery());
 
-        [HttpGet("customers/{customerId}")]
+        [HttpGet("{customerId}")]
         public async Task<IActionResult> GetCustomerByIdAsync(Guid customerId) =>
             await HandleRequestAsync<GetCustomerByIdQuery, CustomerView>(new GetCustomerByIdQuery(customerId));
 
-        [HttpGet("customers/{customerId}/bookings")]
+        #region Customer Bookings
+        [HttpGet("{customerId}/bookings")]
         public async Task<IActionResult> GetCustomerBookingsByIdAsync(Guid customerId) =>
             await HandleRequestAsync<GetCustomerBookingsById, IEnumerable<BookingView>>(new GetCustomerBookingsById(customerId));
 
-        [HttpGet("customers/{customerId}/bookings/{bookingId}")]
+        [HttpGet("{customerId}/bookings/{bookingId}")]
         public async Task<IActionResult> GetCustomerBookingByIdAsync(Guid customerId, Guid bookingId) =>
             await HandleRequestAsync<GetCustomerBookingById, IEnumerable<BookingView>>(new GetCustomerBookingById(customerId, bookingId));
+        #endregion
     }
 }

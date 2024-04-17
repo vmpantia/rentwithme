@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RWM.Core\RWM.Core.csproj" />
     <ProjectReference Include="..\RWM.Infrastructure\RWM.Infrastructure.csproj" />
+    <ProjectReference Include="..\RWM.Services\RWM.Services.csproj" />
   </ItemGroup>
 
 </Project>

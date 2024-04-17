@@ -10,7 +10,7 @@ namespace RWM.Domain.Models.Entities
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public decimal Rate { get; set; }
+        public decimal Rate { get; set; } // Suggested Rate for Specific Vehicle Type
         public CommonStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }

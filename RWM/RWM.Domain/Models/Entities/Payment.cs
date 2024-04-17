@@ -13,6 +13,7 @@ namespace RWM.Domain.Models.Entities
         public string? Remarks { get; set; }
         public PaymentType Type { get; set; }
         public PaymentMethod Method { get; set; }
+        public PaymentStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using RWM.Core.Models.Views;
 using RWM.Domain.Models.Entities;
+using RWM.Domain.Models.Views;
 
 namespace RWM.Core.Mappings
 {
@@ -22,6 +22,7 @@ namespace RWM.Core.Mappings
                 .ForMember(p => p.VehicleSeries, o => o.MapFrom(s => s.Vehicle.Series))
                 .ForMember(p => p.VehicleYearModel, o => o.MapFrom(s => s.Vehicle.YearModel))
                 .ForMember(p => p.VehicleType, o => o.MapFrom(s => s.Vehicle.VehicleType.Name))
+                .ForMember(p => p.PaymentHistory, o => o.MapFrom(s => s.Payments))
                 .ForMember(p => p.LastModifiedAt, o => o.MapFrom(s => s.UpdatedAt ?? s.CreatedAt));
         }
     }

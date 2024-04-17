@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using RWM.Core.Models.Views;
+using RWM.Domain.Models.Views;
 
 namespace RWM.Core.Models.Queries
 {

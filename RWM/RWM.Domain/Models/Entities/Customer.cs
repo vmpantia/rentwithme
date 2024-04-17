@@ -19,7 +19,7 @@ namespace RWM.Domain.Models.Entities
         // License Details
         public string LicenseNo { get; set; }
         public DateTime LicenseExpiredAt { get; set; }
-        public string LicenseRestrictionCodes { get; set; }
+        public string LicenseRestriction { get; set; }
 
         public CommonStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
