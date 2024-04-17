@@ -13,6 +13,7 @@ namespace RWM.Infrastructure.Databases.Contexts
         private List<Vehicle> _stubVehicles = new List<Vehicle>();
         private List<VehicleType> _stubVehicleTypes = new List<VehicleType>();
         private List<Yard> _stubYards = new List<Yard>();
+        private List<Configuration> _initialConfigurations = new List<Configuration>();
         public RWMDbContext(DbContextOptions options) : base(options)
         {
             var customers = FakeData.FakerCustomer()
@@ -40,6 +41,11 @@ namespace RWM.Infrastructure.Databases.Contexts
             _stubVehicles = vehicles;
             _stubVehicleTypes = vehicleTypes;
             _stubYards = yards;
+
+            _initialConfigurations = new List<Configuration>
+            {
+                new Configuration { Section = "BOOKING", Key = "RESERVATION_PERCENTAGE", Value = "10", Description = null }
+            };
         }
 
         public DbSet<Booking> Bookings { get; set; }
@@ -49,6 +55,7 @@ namespace RWM.Infrastructure.Databases.Contexts
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<Yard> Yards { get; set; }
+        public DbSet<Configuration> Configurations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -157,6 +164,11 @@ namespace RWM.Infrastructure.Databases.Contexts
                 .IsRequired();
 
                 e.HasData(_stubYards);
+            });
+
+            modelBuilder.Entity<Configuration>(e =>
+            {
+                e.HasData(_initialConfigurations);
             });
         }
     }
