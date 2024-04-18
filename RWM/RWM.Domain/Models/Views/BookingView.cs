@@ -14,6 +14,7 @@
         public decimal ReservationFee { get; set; }
         public decimal PaidAmount { get; set; }
         public decimal Balance { get; set; }
+        public string? Feedback { get; set; }
         public string Status { get; set; }
 
         // Customer Information
